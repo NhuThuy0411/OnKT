@@ -89,5 +89,12 @@
             android:layout_weight="1"
             android:text="Dang nhap"
             android:textSize="20dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Thoat"
+            android:textSize="20dp"
+            android:id="@+id/btn_thoat"/>
     </LinearLayout>
 </LinearLayout>

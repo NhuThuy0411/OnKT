@@ -1,5 +1,8 @@
 package com.example.nhuthuy.onkt;
 
+import android.content.DialogInterface;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText taik, taik1;
     CheckBox luu;
     Button dangnhap;
-
+    Button out;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         luu = (CheckBox)findViewById(R.id.ckb_luuTT);
 
         dangnhap = (Button)findViewById(R.id.btn_dangNhap);
+        out = (Button)findViewById(R.id.btn_thoat);
 
         dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +48,29 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+        });
+
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+                builder.setTitle("Thong bao");
+                builder.setMessage("Ban co muon thoat khong?");
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.setPositiveButton("Co", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onBackPressed();
+                    }
+                });
+                builder.setNegativeButton("Khong", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
             }
         });
     }
